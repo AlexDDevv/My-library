@@ -49,7 +49,7 @@ export default function ResearchContent() {
 					</div>
 				</div>
 				<section className="research-section">
-					<h2 className="find-result">{}</h2>
+					<h2 className="find-result">{search}</h2>
 					<div className="books-container">
 						{bookData.map(book => (
 							<BookCard 
