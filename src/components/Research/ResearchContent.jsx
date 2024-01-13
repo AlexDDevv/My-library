@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import Header from '../Layouts/Header'
-import Footer from '../Layouts/Footer'
+import apiKey from '../../config'
 import BookCard from '../Layouts/BookCard'
 
 export default function ResearchContent() {
@@ -10,7 +9,7 @@ export default function ResearchContent() {
 	console.log(bookData);
 
 	const searchBook = () => {
-		fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=AIzaSyAoDVvtRj1H4UxIM7BHJTWEYYAa0Uz4Z5E`)
+		fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${apiKey}`)
 		.then(res => res.json())
 		.then (data => setData(data.items));
 	}
@@ -23,26 +22,36 @@ export default function ResearchContent() {
 	const handleClick = () => {
 		searchBook()
 	}
+	const clearInput = () => {
+		setSearch("")
+	}
+
+	const dateBook = [...bookData].sort((a,b) => {
+		const dateA = new Date(a.volumeInfo.publishedDate)
+		const dateB = new Date(b.volumeInfo.publishedDate)
+
+		return dateA - dateB
+	})
 	
     return (
-        <div className='container'>
-			<Header />
-			<Footer />
+        <>
 			<main className="research-content">
-				<div className="research-banner">
-                	<img src="src/assets/images/banner1.webp" alt="Image d'illustration d'une femme lisant un livre" />
-            	</div>
 				<div className="find-book">
 					<h1 className="title-search">Trouves un livre</h1>
 					<div className="search-bar">
-						<input 
-							type="text" 
-							placeholder="Entres le nom d'un livre" 
-							id="searchBar" 
-							value={search} 
-							onChange={e => setSearch(e.target.value)} 
-							onKeyDown={handleKey}
-						/>
+						<div className="input">
+							<input 
+								type="text" 
+								placeholder="Entres le nom d'un livre" 
+								id="searchBar" 
+								value={search} 
+								onChange={e => setSearch(e.target.value)} 
+								onKeyDown={handleKey}
+							/>
+							{search && (
+								<i onClick={clearInput} className="fa-solid fa-xmark"></i>
+							)}
+						</div>
 						<button className='search-btn' onClick={handleClick}>
 							<i className="fa-solid fa-magnifying-glass"></i>
 						</button>
@@ -51,17 +60,22 @@ export default function ResearchContent() {
 				<section className="research-section">
 					<h2 className="find-result">{}</h2>
 					<div className="books-container">
-						{bookData.map(book => (
-							<BookCard 
-								key={book.id}
-								thumbnail={book.volumeInfo.imageLinks?.smallThumbnail ?? 'URL_PAR_DEFAUT'}
-								title={book.volumeInfo.title}
-								author={book.volumeInfo.authors}
-							/>
-						))}
+						{dateBook.slice(0, 5).map(book => {
+							if (book.accessInfo.viewability === "NO_PAGES") {
+								return null;
+							}
+							return (
+								<BookCard 
+									key={book.id}
+									thumbnail={book.volumeInfo.imageLinks?.smallThumbnail ?? 'URL_PAR_DEFAUT'}
+									title={book.volumeInfo.title}
+									author={book.volumeInfo.authors}
+								/>
+							)
+						})}
 					</div>
 				</section>
 			</main>
-		</div>
+		</>
     )
 }
