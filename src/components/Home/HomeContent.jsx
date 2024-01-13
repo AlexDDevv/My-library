@@ -1,12 +1,8 @@
 import React from 'react'
-import Header from '../Layouts/Header'
-import Footer from '../Layouts/Footer'
 
 export default function HomeContent() {
     return (
-        <div className='container'>
-            <Header />
-            <Footer />
+        <>
             <main className="home-content">
                 <div className="home-banner">
                     <img src="src/assets/images/banner2.webp" alt="Image d'illustration d'une femme lisant un livre" />
@@ -27,6 +23,6 @@ export default function HomeContent() {
                     </article>
                 </section>
             </main>
-        </div>
+        </>
     )
 }
