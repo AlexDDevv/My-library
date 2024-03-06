@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import apiKey from '../../config'
-import BookCard from '../Layouts/BookCard'
-import Pagination from '../Layouts/Pagination'
+import BookCard from './BookCard'
+import Pagination from './Pagination'
 import BookFocus from './BookFocus'
 
 export default function ResearchContent() {
