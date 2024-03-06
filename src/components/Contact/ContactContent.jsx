@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../Layouts/Header'
-import Footer from '../Layouts/Footer'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 
 export default function ContactContent() {
 	return (
