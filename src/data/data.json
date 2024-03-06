@@ -1,0 +1,37 @@
+{
+    "navLink": [
+        {
+            "page": "/",
+            "content": "Accueil"
+        },
+        {
+            "page": "/recherche",
+            "content": "Recherche"
+        },
+        {
+            "page": "/library",
+            "content": "Bibliothèque"
+        },
+        {
+            "page": "/contact",
+            "content": "Contact"
+        }
+    ],
+    "socialLink": [
+        {
+            "link": "https://github.com/AlexDDevv",
+            "title": "Github",
+            "icon": "fa-brands fa-github"
+        },
+        {
+            "link": "https://www.instagram.com/sport.devweb/",
+            "title": "Instagram",
+            "icon": "fa-brands fa-instagram"
+        },
+        {
+            "link": "https://twitter.com/Sport_DevWeb",
+            "title": "Twitter",
+            "icon": "fa-brands fa-x-twitter"
+        }
+    ]
+}
