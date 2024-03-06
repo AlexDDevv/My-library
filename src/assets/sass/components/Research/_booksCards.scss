@@ -1,0 +1,46 @@
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    gap: 20px;
+
+    @media screen and (max-width: 1060px) {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .book {
+        max-width: 150px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+        transition: 0.2s;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+        .book-cover {
+            img {
+                display: block;
+                width: 100%;
+                border-radius: 5px;
+            }
+        }
+        .title-author {
+            padding: 10px;
+
+            .title {
+                font-family: $title-font;
+                font-size: 0.8rem;
+                color: $title-color;
+            }
+            .author {
+                font-family: $body-font;
+                font-size: 0.8rem;
+                color: $body-color;
+            }
+        }
+    }
+}

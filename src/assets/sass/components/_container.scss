@@ -1,0 +1,11 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 30px;
+
+    @media screen and (max-width: 700px) {
+        padding: 20px;     
+    }
+}

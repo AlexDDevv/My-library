@@ -1,0 +1,22 @@
+.pagination-container {
+    @include center;
+    gap: 10px;
+    margin-top: 40px;
+
+    .pagination-btn {
+        background: $btn-color;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-family: $body-font;
+        font-weight: 900;
+        height: 30px;
+        width: 30px;
+        padding: 5px;
+        cursor: pointer;
+
+        &.active {
+            background: $title-color;
+        }
+    }
+}
