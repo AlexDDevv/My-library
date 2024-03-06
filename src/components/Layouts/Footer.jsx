@@ -1,22 +1,20 @@
 import React from 'react'
+import data from "../../data/data.json"
+import SocialLink from './SocialLink'
 
 export default function Footer() {
     return (
         <footer className="footer">
             <ul className="footer-list">
-                <li className="footer-li">
-                    <a href="https://twitter.com/Sport_DevWeb" target='blank' className="social-link"><i className="fa-brands fa-x-twitter"></i></a>
-                </li>
-                <li className="footer-li">
-                    <a href="https://www.instagram.com/sport.devweb/" target='blank' className="social-link"><i className="fa-brands fa-instagram"></i></a>
-                </li>
-                <li className="footer-li">
-                    <a href="https://github.com/AlexDDevv" target='blank' className="social-link"><i className="fa-brands fa-github"></i></a>
-                </li>
+                {data.socialLink.map((item, i) => (
+                    <SocialLink
+                        key={i}
+                        link={item.link}
+                        title={item.title}
+                        icon={item.icon}
+                    />
+                ))}
             </ul>
         </footer>
     )
 }
-
-
-{/* <a href="https://www.flaticon.com/fr/icones-gratuites/manuscrit" title="manuscrit icônes">Manuscrit icônes créées par Nikita Golubev - Flaticon</a> */}
