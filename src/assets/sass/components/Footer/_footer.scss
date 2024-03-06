@@ -1,0 +1,26 @@
+.footer {
+    .footer-list {
+        @include center;
+        gap: 30px;
+
+        .footer-li {
+            i {
+                font-size: 2rem;
+                color: $btn-color;
+                transition: 0.2s;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+                @media screen and (max-width: 500px) {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        margin-top: 25px;
+    }
+}
