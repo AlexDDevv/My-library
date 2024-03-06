@@ -1,11 +1,12 @@
 import React from 'react'
+import banner from "../../assets/images/banner2.webp"
 
 export default function HomeContent() {
     return (
         <>
             <main className="home-content">
                 <div className="home-banner">
-                    <img src="src/assets/images/banner2.webp" alt="Image d'illustration d'une femme lisant un livre" />
+                    <img src={banner} alt="Image d'illustration d'une femme lisant un livre" />
                 </div>
                 <section className="home-section">
                     <article className="title-quote">
