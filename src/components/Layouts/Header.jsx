@@ -1,31 +1,23 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import logo from "../../assets/images/home-img.webp"
+import LinkNav from './LinkNav'
+import data from "../../data/data.json"
 
 export default function Header() {
     return (
         <header className="header">
-            <div className="avatar-container">
-                <div className="avatar-img">
-                    <img src="../src/assets/images/moi.webp" alt="Portrait de moi" className="avatar" />
-                </div>
-                <div className="avatar-name">
-                    <h3>Alexis D</h3>
-                </div>
+            <div className="logo-container">
+                <img src={logo} alt="Logo du site" className="logo" />
             </div>
             <nav className="nav-bar">
                 <ul className="nav-list">
-                    <li className="nav-li">
-                        <NavLink to={"/"} className={({ isActive }) => isActive ? "active-nav-link" : "nav-link"}>Accueil</NavLink>
-                    </li>
-                    <li className="nav-li">
-                        <NavLink to={"/library"} className={({ isActive }) => isActive ? "active-nav-link" : "nav-link"}>Bibliothèque</NavLink>
-                    </li>
-                    <li className="nav-li">
-                        <NavLink to={"/recherche"} className={({ isActive }) => isActive ? "active-nav-link" : "nav-link"}>Recherche</NavLink>
-                    </li>
-                    <li className="nav-li">
-                        <NavLink to={"/contact"} className={({ isActive }) => isActive ? "active-nav-link" : "nav-link"}>Contact</NavLink>
-                    </li>
+                    {data.navLink.map((item, i) => (
+                        <LinkNav
+                            key={i}
+                            redirection={item.page}
+                            content={item.content}
+                        />
+                    ))}
                 </ul>
             </nav>
         </header>
