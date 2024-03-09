@@ -16,8 +16,8 @@ $body-font: 'Lato', sans-serif;
 $quote-font: 'EB Garamond', serif;
 $title-color: #3E332E;
 $body-color: #71624B;
-$body-bg: #F6EEE7;
-$container-bg: #FCF9F6;
+$container-bg: #F6EEE7;
+$body-bg: #FCF9F6;
 $btn-color: #AD7F58;
 $border-color: #DCBC9F;
 $outline-color: #CEA37E;
@@ -29,5 +29,5 @@ $outline-color: #CEA37E;
     list-style-type: none;
 }
 body {
-    background: $container-bg;
+    background: $body-bg;
 }
