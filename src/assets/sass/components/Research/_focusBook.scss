@@ -1,174 +1,178 @@
-.bookFocus-container {
-    background: $body-bg;
-    border-radius: 20px;
-    padding: 20px 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    position: relative;
+.research-result {
+    padding: 0 100px;
 
-    @media screen and (max-width: 1060px) {
-        gap: 20px;
-        padding: 30px;
-    }
-    @media screen and (max-width: 700px) {
-        padding: 30px 20px;     
-    }
-
-    h3 {
-        color: $title-color;
-        font-family: $title-font;
-        margin-bottom: 10px;
-
-        @media screen and (max-width: 850px) {
-            font-size: 1rem;
+    .bookFocus-container {
+        background: $container-bg;
+        border-radius: 20px;
+        padding: 20px 30px;
+        position: relative;
+    
+        @media screen and (max-width: 1060px) {
+            padding: 30px;
         }
-    }
-    p {
-        color: $body-color;
-        font-family: $body-font;
-    }
-    .arrow-back {
-        height: 30px;
-        width: 30px;
-        border: 1px solid $btn-color;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        position: absolute;
-        top: 15px;
-        right: 15px;
-
-        i {
-            color: $btn-color;
-        }
-    }
-    .focus-book {
-        @include between;
-        gap: 20px;
-        margin-right: 10px;
-        margin-bottom: 10px;
-
         @media screen and (max-width: 700px) {
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: normal;
-            margin-right: 0;
+            padding: 30px 20px;     
         }
-        @media screen and (max-width: 500px) {
-            gap: 30px;
+    
+        h3 {
+            color: $title-color;
+            font-family: $title-font;
+            margin-bottom: 10px;
+    
+            @media screen and (max-width: 850px) {
+                font-size: 1rem;
+            }
         }
-
-        .focus-infos {
+        p {
+            color: $body-color;
+            font-family: $body-font;
+        }
+        .arrow-back {
+            height: 30px;
+            width: 30px;
+            border: 1px solid $btn-color;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+    
+            i {
+                color: $btn-color;
+            }
+        }
+        .focus-book {
             display: flex;
             flex-direction: column;
             gap: 20px;
-
+    
             @media screen and (max-width: 700px) {
-                order: 2;
-            }
-
-            .language {
-                margin-bottom: 5px;
-            }
-        }
-        .book {
-            display: flex;
-            justify-content: flex-end;
-            gap: 30px;
-
-            @media screen and (max-width: 700px) {
-                order: 1;
-                gap: 25px;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: normal;
+                margin-right: 0;
             }
             @media screen and (max-width: 500px) {
-                flex-direction: column;
-                align-items: center;
-                align-self: center;
-                text-align: center;
+                gap: 30px;
             }
-
-            .book-cover {
-                width: 120px;
-                height: 200px;
-                border-radius: 5px;
-                box-shadow: -15px 15px 15px 0 rgba(0, 0, 0, 0.2);
-
-                @media screen and (max-width: 700px) {
-                    box-shadow: 15px 15px 15px 0 rgba(0, 0, 0, 0.2);
-                }
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 5px;
-                    object-fit: cover;
-                }
-            }
-            .title-author {
-                max-width: 320px;
+    
+            .book {
                 display: flex;
-                flex-direction: column;
                 justify-content: center;
-                gap: 20px;
-
-                @media screen and (max-width: 850px) {
-                    max-width: 200px;
+                gap: 30px;
+    
+                @media screen and (max-width: 700px) {
+                    order: 1;
+                    gap: 25px;
                 }
                 @media screen and (max-width: 500px) {
-                    max-width: 210px;
+                    flex-direction: column;
                     align-items: center;
-                    gap: 10px;
+                    align-self: center;
+                    text-align: center;
                 }
-
-                h2 {
-                    color: $title-color;
-                    font-family: $title-font;
-
-                    @media screen and (max-width: 850px) {
-                        font-size: 1rem;
-                    }
-                }
-                .author {
-                    color: $body-color;
-                    font-family: $body-font;
-                    font-size: 1.2rem;
-
-                    @media screen and (max-width: 850px) {
-                        font-size: 1rem;
-                    }
-                }
-                .add-book {
-                    background: $btn-color;
-                    border: none;
+    
+                .book-cover {
+                    width: 120px;
+                    height: 200px;
                     border-radius: 5px;
-                    color: white;
-                    font-family: $body-font;
-                    font-weight: 900;
-                    letter-spacing: 1px;
-                    padding: 5px 0;
-                    cursor: pointer;
-                    width: 90px;
-
+                    box-shadow: -15px 15px 15px 0 rgba(0, 0, 0, 0.2);
+    
+                    @media screen and (max-width: 700px) {
+                        box-shadow: 15px 15px 15px 0 rgba(0, 0, 0, 0.2);
+                    }
+    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 5px;
+                        object-fit: cover;
+                    }
+                }
+                .title-author {
+                    max-width: 320px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 20px;
+    
+                    @media screen and (max-width: 850px) {
+                        max-width: 200px;
+                    }
                     @media screen and (max-width: 500px) {
-                        margin-top: 5px;
+                        max-width: 210px;
+                        align-items: center;
+                        gap: 10px;
+                    }
+    
+                    h2 {
+                        color: $title-color;
+                        font-family: $title-font;
+    
+                        @media screen and (max-width: 850px) {
+                            font-size: 1rem;
+                        }
+                    }
+                    .author {
+                        color: $body-color;
+                        font-family: $body-font;
+                        font-size: 1.2rem;
+    
+                        @media screen and (max-width: 850px) {
+                            font-size: 1rem;
+                        }
+                    }
+                    .add-book {
+                        background: $btn-color;
+                        border: none;
+                        border-radius: 5px;
+                        color: white;
+                        font-family: $body-font;
+                        font-weight: 900;
+                        letter-spacing: 1px;
+                        padding: 5px 0;
+                        cursor: pointer;
+                        width: 90px;
+    
+                        @media screen and (max-width: 500px) {
+                            margin-top: 5px;
+                        }
                     }
                 }
             }
-        }
-    }
-    .focus-content {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-        .description {
-            margin-bottom: 0;
-        }
-        .content {
-            line-height: 23px;
+            .book-infos {
+                 @include between;
+    
+                .focus-content {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    max-width: 1000px;
+            
+                    .description {
+                        margin-bottom: 0;
+                    }
+                    .content {
+                        line-height: 23px;
+                    }
+                }
+                .focus-infos {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+        
+                    @media screen and (max-width: 700px) {
+                        order: 2;
+                    }
+        
+                    .language {
+                        margin-bottom: 5px;
+                    }
+                }
+            }
         }
     }
 }
