@@ -11,7 +11,7 @@ export default function ResearchContent() {
 	const [currentPage, setCurrentPage] = useState(1)
 	const [booksPerPage, setBooksPerPage] = useState(5)
 	const [selectedBook, setSelectedBook] = useState(null)
-	const [showBook, setShowBook] = useState(true)
+	const [showBook, setShowBook] = useState(false)
 
 	const searchBook = () => {
 		fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${apiKey}`)
@@ -44,7 +44,7 @@ export default function ResearchContent() {
 
 	const renderBookFocus = (book) => {
 		setSelectedBook(book)
-		setShowBook(true)
+		setShowBook(!showBook)
 	}
 
 	const goBack = () => {
@@ -55,64 +55,66 @@ export default function ResearchContent() {
 	return (
 		<>
 			<main className="research-content">
-				<div className="find-book">
-					<h1 className="title-search">Trouves un livre</h1>
-					<div className="search-bar">
-						<div className="input">
-							<input
-								type="text"
-								placeholder="Entres le nom d'un livre"
-								id="searchBar"
-								value={search}
-								onChange={e => setSearch(e.target.value)}
-								onKeyDown={handleKey}
-							/>
-							{search && (
-								<i onClick={clearInput} className="fa-solid fa-xmark"></i>
-							)}
-						</div>
-						<button className='search-btn' onClick={handleClick}>
-							<i className="fa-solid fa-magnifying-glass"></i>
-						</button>
-					</div>
-				</div>
-				<section className="research-section">
-					{selectedBook ? (
-						<BookFocus
-							blurb={selectedBook.volumeInfo.description}
-							pageNb={selectedBook.volumeInfo.pageCount}
-							editors={selectedBook.volumeInfo.publisher}
-							imageLinks={selectedBook.volumeInfo.imageLinks} 
-							title={selectedBook.volumeInfo.title}
-							author={selectedBook.volumeInfo.authors}
-							language={selectedBook.volumeInfo.language}
-							onClick={goBack}
-						/>
-					) : (
-						<>
-							<div className="books-container">
-								{currentBooks.map(book => {
-									return (
-										<BookCard
-											key={book.id}
-											thumbnail={book.volumeInfo.imageLinks?.smallThumbnail ?? 'URL_PAR_DEFAUT'}
-											title={book.volumeInfo.title}
-											author={book.volumeInfo.authors}
-											onClick={() => renderBookFocus(book)}
-										/>
-									)
-								})}
+				{!selectedBook ? (
+					<section className="research-section">
+						<div className="find-book">
+							<h1 className="title-search">Trouves un livre</h1>
+							<div className="search-bar">
+								<div className="input">
+									<input
+										type="text"
+										placeholder="Entres le nom d'un livre"
+										id="searchBar"
+										value={search}
+										onChange={e => setSearch(e.target.value)}
+										onKeyDown={handleKey}
+									/>
+									{search && (
+										<i onClick={clearInput} className="fa-solid fa-xmark"></i>
+									)}
+								</div>
+								<button className='search-btn' onClick={handleClick}>
+									<i className="fa-solid fa-magnifying-glass"></i>
+								</button>
 							</div>
+						</div>
+						<div className="books-container">
+							{currentBooks.map(book => {
+								return (
+									<BookCard
+										key={book.id}
+										thumbnail={book.volumeInfo.imageLinks?.smallThumbnail ?? 'URL_PAR_DEFAUT'}
+										title={book.volumeInfo.title}
+										author={book.volumeInfo.authors}
+										onClick={() => renderBookFocus(book)}
+									/>
+								)
+							})}
+						</div>
 
-							<Pagination
-								totalBooks={filteredBooks.length}
-								booksPerPage={booksPerPage}
-								setCurrentPage={setCurrentPage}
-								currentPage={currentPage}
+						<Pagination
+							totalBooks={filteredBooks.length}
+							booksPerPage={booksPerPage}
+							setCurrentPage={setCurrentPage}
+							currentPage={currentPage}
+						/>
+					</section>
+				) : (
+					<>
+						<section className="research-result">
+							<BookFocus
+								blurb={selectedBook.volumeInfo.description}
+								pageNb={selectedBook.volumeInfo.pageCount}
+								editors={selectedBook.volumeInfo.publisher}
+								imageLinks={selectedBook.volumeInfo.imageLinks}
+								title={selectedBook.volumeInfo.title}
+								author={selectedBook.volumeInfo.authors}
+								language={selectedBook.volumeInfo.language}
+								onClick={goBack}
 							/>
-						</>
-					)}
-				</section>
+						</section>
+					</>
+				)}
 			</main>
 		</>
 	)
