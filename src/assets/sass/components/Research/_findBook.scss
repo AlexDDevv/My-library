@@ -1,6 +1,9 @@
-.research-content {
+.research-section {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+
     .find-book {
-        margin-bottom: 50px;
         text-align: center;
 
         .title-search {

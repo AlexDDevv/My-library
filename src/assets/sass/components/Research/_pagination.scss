@@ -1,7 +1,6 @@
 .pagination-container {
     @include center;
     gap: 10px;
-    margin-top: 40px;
 
     .pagination-btn {
         background: $btn-color;

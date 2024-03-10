@@ -1,15 +1,7 @@
 .books-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    justify-items: center;
-    gap: 20px;
-
-    @media screen and (max-width: 1060px) {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 30px;
-    }
+    @include center;
+    flex-wrap: wrap;
+    gap: 50px;
 
     .book {
         max-width: 150px;
