@@ -70,5 +70,12 @@
                 }
             }
         }
+        .error-search {
+            color: #991b1b;
+            display: block;
+            font-family: $body-font;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
     }
 }
