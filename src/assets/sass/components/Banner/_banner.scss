@@ -1,0 +1,21 @@
+.banner {
+    height: max(200px, 15vw);
+    margin-bottom: 20px;
+
+    @media screen and (max-width: 700px) {
+        height: max(150px, 29vw);
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+    .home-banner {
+        object-position: 50% 55%;
+    }
+    .library-banner {
+        object-position: 50% 45%;
+    }
+}
