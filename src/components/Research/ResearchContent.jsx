@@ -7,6 +7,7 @@ import BookFocus from './BookFocus'
 
 export default function ResearchContent() {
 	const [search, setSearch] = useState("")
+	const [searchError, setSearchError] = useState(false)
 	const [bookData, setData] = useState([])
 	const [currentPage, setCurrentPage] = useState(1)
 	const [booksPerPage, setBooksPerPage] = useState(5)
@@ -14,11 +15,17 @@ export default function ResearchContent() {
 	const [showBook, setShowBook] = useState(false)
 
 	const searchBook = () => {
+		if (search.trim() === "") {
+			setSearchError(true)
+			return;
+		}
+
 		fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${apiKey}`)
 			.then(res => res.json())
 			.then(data => setData(data.items));
-	}
 
+		setSearchError(false)
+	}
 	const handleKey = (e) => {
 		if (e.key === "Enter") {
 			searchBook()
@@ -52,6 +59,12 @@ export default function ResearchContent() {
 		setSelectedBook(null)
 	}
 
+	const addBookToLibrary = () => {
+		const existingBooks = JSON.parse(localStorage.getItem("books")) || [];
+		const newBooks = [...existingBooks, selectedBook];
+		localStorage.setItem("books", JSON.stringify(newBooks));
+    }
+
 	return (
 		<>
 			<main className="research-content">
@@ -77,6 +90,9 @@ export default function ResearchContent() {
 									<i className="fa-solid fa-magnifying-glass"></i>
 								</button>
 							</div>
+							{searchError && (
+								<span className='error-search'>Entres le nom d'un livre</span>
+							)}
 						</div>
 						<div className="books-container">
 							{currentBooks.map(book => {
@@ -111,6 +127,8 @@ export default function ResearchContent() {
 								author={selectedBook.volumeInfo.authors}
 								language={selectedBook.volumeInfo.language}
 								onClick={goBack}
+								showAddBtn={true}
+								addBook={addBookToLibrary}
 							/>
 						</section>
 					</>
