@@ -3,7 +3,7 @@ import React from 'react'
 export default function BookCard({ thumbnail, title, author, onClick, showAddBtn, addBook, removeBtn, remove }) {
     return (
         <>
-            <article className='book' onClick={onClick}>
+            <article className='bookCard' onClick={onClick}>
                 <div className="book-cover">
                     <img
                         src={thumbnail}
