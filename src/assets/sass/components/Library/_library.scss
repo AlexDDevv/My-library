@@ -1,75 +1,86 @@
 .library-container {
+    padding: 0 50px;
+
     .library-title {
         color: $title-color;
         font-family: $title-font;
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
     }
     .library-content {
-        position: relative;
+        background: $container-bg;
+        border-radius: 20px;
+        padding: 50px;
 
-        .bookCard {
-            max-width: 120px;
+        .books-container {
+            position: relative;
 
-            .book-cover {
-                height: 180px;
-
-                img {
-                    height: 100%;
-                }
-            }
-            .btn-container {
-                width: 85%;
-                margin: 0 auto;
-                padding-bottom: 5px;
-
-                .delete-book {
-                    background: transparent;
-                    border: 1px solid $btn-color;
-                    border-radius: 1px;
-                    padding: 2px;
-                    @include center;
-                    cursor: pointer;
-                    transition: 0.2s;
-                    width: 100%;
+            .bookCard {
+                background: $body-bg;
+                height: 320px;
+                
+                .btn-container {
+                    width: 85%;
+                    margin: 0 auto;
+                    padding-bottom: 10px;
     
-                    &:hover {
-                        background: $btn-color;
-    
-                        i {
-                            color: white;
+                    .delete-book {
+                        background: transparent;
+                        border: 1px solid $btn-color;
+                        border-radius: 1px;
+                        padding: 2px;
+                        @include center;
+                        cursor: pointer;
+                        transition: 0.2s;
+                        width: 100%;
+        
+                        &:hover {
+                            background: $btn-color;
+        
+                            i {
+                                color: white;
+                            }
                         }
+        
+                        i {
+                            color: $btn-color;
+                        }
+        
                     }
-    
-                    i {
-                        color: $btn-color;
-                    }
-    
                 }
             }
-        }
-        .carrousel-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: transparent;
-            border: 1px solid $btn-color;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            @include center;
+            .carrousel-btn {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: transparent;
+                border: 1px solid $btn-color;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+                @include center;
+                transition: 0.2s;
 
-            i {
-                color: $btn-color;
-                font-size: 1rem;
+                &:hover {
+                    border-color: $title-color;
+
+                    i {
+                        color: $title-color;
+                    }
+                }
+    
+                i {
+                    color: $btn-color;
+                    font-size: 1rem;
+                }
             }
-        }
-        .previous {
-            left: 50px;
-        }
-        .next {
-            right: 50px;
+            .previous {
+                left: 0;
+            }
+            .next {
+                right: 0;
+            }
         }
     }
 }
