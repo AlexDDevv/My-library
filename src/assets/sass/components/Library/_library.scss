@@ -1,0 +1,75 @@
+.library-container {
+    .library-title {
+        color: $title-color;
+        font-family: $title-font;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .library-content {
+        position: relative;
+
+        .bookCard {
+            max-width: 120px;
+
+            .book-cover {
+                height: 180px;
+
+                img {
+                    height: 100%;
+                }
+            }
+            .btn-container {
+                width: 85%;
+                margin: 0 auto;
+                padding-bottom: 5px;
+
+                .delete-book {
+                    background: transparent;
+                    border: 1px solid $btn-color;
+                    border-radius: 1px;
+                    padding: 2px;
+                    @include center;
+                    cursor: pointer;
+                    transition: 0.2s;
+                    width: 100%;
+    
+                    &:hover {
+                        background: $btn-color;
+    
+                        i {
+                            color: white;
+                        }
+                    }
+    
+                    i {
+                        color: $btn-color;
+                    }
+    
+                }
+            }
+        }
+        .carrousel-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: transparent;
+            border: 1px solid $btn-color;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            @include center;
+
+            i {
+                color: $btn-color;
+                font-size: 1rem;
+            }
+        }
+        .previous {
+            left: 50px;
+        }
+        .next {
+            right: 50px;
+        }
+    }
+}
