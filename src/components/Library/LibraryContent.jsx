@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Banner from '../Banner/Banner'
-import bannerImg from "../../assets/images/banner5.webp"
 import Carrousel from './Carrousel'
 import BookFocus from '../Research/BookFocus'
 
@@ -24,10 +22,6 @@ export default function LibraryContent() {
 			<main className="library-container">
 				{!selectedBook ? (
 					<>
-						<Banner
-							banner={bannerImg}
-							location={"library-banner"}
-						/>
 						<h1 className="library-title">Ma bibliothèque</h1>
 						<section className="library-content">
 							<Carrousel
