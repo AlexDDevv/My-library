@@ -1,0 +1,18 @@
+.contact-content {
+    text-align: center;
+
+    .contact-me {
+        @include center;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        p {
+            color: $body-color;
+            font-family: $body-font;
+            font-size: 1.2rem;
+            line-height: 25px;
+        }
+    }
+}
