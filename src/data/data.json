@@ -32,6 +32,11 @@
             "link": "https://twitter.com/Sport_DevWeb",
             "title": "Twitter",
             "icon": "fa-brands fa-x-twitter"
+        },
+        {
+            "link": "mailto:alexddevs@gmail.com",
+            "title": "Adresse email",
+            "icon": "fa-solid fa-envelope"
         }
     ],
     "quotes": [
