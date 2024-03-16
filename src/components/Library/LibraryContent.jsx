@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Carrousel from './Carrousel'
 import BookFocus from '../Book/BookFocus'
+import { formatDate } from '../../function'
 
 export default function LibraryContent() {
 	const [selectedBook, setSelectedBook] = useState(null)
@@ -16,6 +17,8 @@ export default function LibraryContent() {
 		setShowBook(false)
 		setSelectedBook(null)
 	}
+
+	const formattedDate = formatDate(selectedBook.volumeInfo.publishedDate)
 
 	return (
 		<>
@@ -40,12 +43,15 @@ export default function LibraryContent() {
 								onClick={goBack}
 								imageLinks={selectedBook.volumeInfo.imageLinks.smallThumbnail ?? 'URL_PAR_DEFAUT'}
 								title={selectedBook.volumeInfo.title}
+								subtitle={selectedBook.volumeInfo.subtitle}
 								author={selectedBook.volumeInfo.authors}
 								showAddBtn={false}
 								blurb={selectedBook.volumeInfo.description}
 								editors={selectedBook.volumeInfo.publisher}
 								language={selectedBook.volumeInfo.language}
 								pageNb={selectedBook.volumeInfo.pageCount}
+								publishedDate={formattedDate}
+								isbn={selectedBook.volumeInfo.industryIdentifiers[0].identifier}
 							/>
 						</section>
 					</>

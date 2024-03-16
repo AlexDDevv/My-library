@@ -4,6 +4,7 @@ import apiKey from '../../config'
 import BookCard from '../Book/BookCard'
 import Pagination from './Pagination'
 import BookFocus from '../Book/BookFocus'
+import { formatDate } from '../../function'
 
 export default function ResearchContent() {
 	const [search, setSearch] = useState("")
@@ -64,6 +65,11 @@ export default function ResearchContent() {
 		const newBooks = [...existingBooks, selectedBook];
 		localStorage.setItem("books", JSON.stringify(newBooks));
     }
+	
+	let formattedDate = null;
+    if (selectedBook) {
+        formattedDate = formatDate(selectedBook.volumeInfo.publishedDate);
+    }
 
 	return (
 		<>
@@ -122,6 +128,7 @@ export default function ResearchContent() {
 								onClick={goBack}
 								imageLinks={selectedBook.volumeInfo.imageLinks.smallThumbnail ?? 'URL_PAR_DEFAUT'}
 								title={selectedBook.volumeInfo.title}
+								subtitle={selectedBook.volumeInfo.subtitle}
 								author={selectedBook.volumeInfo.authors}
 								showAddBtn={true}
 								addBook={addBookToLibrary}
@@ -129,6 +136,8 @@ export default function ResearchContent() {
 								editors={selectedBook.volumeInfo.publisher}
 								language={selectedBook.volumeInfo.language}
 								pageNb={selectedBook.volumeInfo.pageCount}
+								publishedDate={formattedDate}
+								isbn={selectedBook.volumeInfo.industryIdentifiers[0].identifier}
 							/>
 						</section>
 					</>
