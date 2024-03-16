@@ -1,0 +1,5 @@
+.books-container {
+    @include center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
