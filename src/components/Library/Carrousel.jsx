@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import BookCard from '../Research/BookCard'
+import BookCard from '../Book/BookCard'
 
 export default function Carrousel({ book, setBook, showBook, setShowBook, setSelectedBook }) {
     const [index, setIndex] = useState(0)
