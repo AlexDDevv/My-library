@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Carrousel from './Carrousel'
-import BookFocus from '../Research/BookFocus'
+import BookFocus from '../Book/BookFocus'
 
 export default function LibraryContent() {
 	const [selectedBook, setSelectedBook] = useState(null)
@@ -37,15 +37,15 @@ export default function LibraryContent() {
 					<>
 						<section className='research-result'>
 							<BookFocus
-								blurb={selectedBook.volumeInfo.description}
-								pageNb={selectedBook.volumeInfo.pageCount}
-								editors={selectedBook.volumeInfo.publisher}
-								imageLinks={selectedBook.volumeInfo.imageLinks}
+								onClick={goBack}
+								imageLinks={selectedBook.volumeInfo.imageLinks.smallThumbnail ?? 'URL_PAR_DEFAUT'}
 								title={selectedBook.volumeInfo.title}
 								author={selectedBook.volumeInfo.authors}
-								language={selectedBook.volumeInfo.language}
-								onClick={goBack}
 								showAddBtn={false}
+								blurb={selectedBook.volumeInfo.description}
+								editors={selectedBook.volumeInfo.publisher}
+								language={selectedBook.volumeInfo.language}
+								pageNb={selectedBook.volumeInfo.pageCount}
 							/>
 						</section>
 					</>

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import apiKey from '../../config'
-import BookCard from './BookCard'
+import BookCard from '../Book/BookCard'
 import Pagination from './Pagination'
-import BookFocus from './BookFocus'
+import BookFocus from '../Book/BookFocus'
 
 export default function ResearchContent() {
 	const [search, setSearch] = useState("")
@@ -119,16 +119,16 @@ export default function ResearchContent() {
 					<>
 						<section className="research-result">
 							<BookFocus
-								blurb={selectedBook.volumeInfo.description}
-								pageNb={selectedBook.volumeInfo.pageCount}
-								editors={selectedBook.volumeInfo.publisher}
-								imageLinks={selectedBook.volumeInfo.imageLinks}
+								onClick={goBack}
+								imageLinks={selectedBook.volumeInfo.imageLinks.smallThumbnail ?? 'URL_PAR_DEFAUT'}
 								title={selectedBook.volumeInfo.title}
 								author={selectedBook.volumeInfo.authors}
-								language={selectedBook.volumeInfo.language}
-								onClick={goBack}
 								showAddBtn={true}
 								addBook={addBookToLibrary}
+								blurb={selectedBook.volumeInfo.description}
+								editors={selectedBook.volumeInfo.publisher}
+								language={selectedBook.volumeInfo.language}
+								pageNb={selectedBook.volumeInfo.pageCount}
 							/>
 						</section>
 					</>
