@@ -2,33 +2,44 @@ import React from 'react'
 import Cover from './Cover'
 import TitleAuthor from './TitleAuthor'
 
-export default function BookFocus({ onClick, imageLinks, title, author, showAddBtn, addBook, blurb, editors, language, pageNb,  }) {
+export default function BookFocus({ onClick, imageLinks, title, subtitle, author, showAddBtn, addBook, blurb, editors, language, pageNb, publishedDate, isbn }) {
     return (
         <div className='bookFocus-container'>
             <div className="arrow-back" onClick={onClick}>
                 <i className="fa-solid fa-arrow-left"></i>
             </div>
-            <Cover 
+            <Cover
                 thumbnail={imageLinks}
             />
             <div className="book-infos">
-                <TitleAuthor 
+                <TitleAuthor
                     title={title}
+                    subtitle={subtitle}
                     author={author}
                 />
-                <div className="focus-infos">
-                    <div className="focus-content">
+                <div className="content">
+                    <div className="resume">
                         <h3 className="description">Résumé</h3>
                         <p className="content">{blurb}</p>
                     </div>
-                    <div className="focus-editors">
-                        <h3 className="editors">Éditeurs</h3>
-                        <p className="editors-content">{editors}</p>
-                    </div>
-                    <div className="focus-pages">
-                        <h3 className="other-info">Informations</h3>
-                        <p className="language">langue : {language}</p>
-                        <p className="pages-nb">{pageNb} pages</p>
+                    <div className="more-infos">
+                        <div className="editors">
+                            <h3 className="editors">Éditeurs</h3>
+                            <p className="editors-content">{editors}</p>
+                        </div>
+                        <div className="langue-pages">
+                            <h3 className="other-info">Informations</h3>
+                            <p className="language">langue : {language}</p>
+                            <p className="pages-nb">{pageNb} pages</p>
+                        </div>
+                        <div className="date-parution">
+                            <h3 className="parution">Parution</h3>
+                            <p className="date">{publishedDate}</p>
+                        </div>
+                        <div className="identifier">
+                            <h3 className="isbn">ISBN</h3>
+                            <p className="isbn-nb">{isbn}</p>
+                        </div>
                     </div>
                 </div>
                 {showAddBtn && (
