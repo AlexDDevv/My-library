@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Carrousel from './Carrousel'
 import BookFocus from '../Book/BookFocus'
-import { formatDate } from '../../function'
 
 export default function LibraryContent() {
 	const [selectedBook, setSelectedBook] = useState(null)
@@ -17,8 +16,6 @@ export default function LibraryContent() {
 		setShowBook(false)
 		setSelectedBook(null)
 	}
-
-	const formattedDate = formatDate(selectedBook.volumeInfo.publishedDate)
 
 	return (
 		<>
@@ -50,7 +47,6 @@ export default function LibraryContent() {
 								editors={selectedBook.volumeInfo.publisher}
 								language={selectedBook.volumeInfo.language}
 								pageNb={selectedBook.volumeInfo.pageCount}
-								publishedDate={formattedDate}
 								isbn={selectedBook.volumeInfo.industryIdentifiers[0].identifier}
 							/>
 						</section>
