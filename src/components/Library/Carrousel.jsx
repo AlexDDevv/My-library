@@ -8,6 +8,11 @@ export default function Carrousel({ book, setBook, showBook, setShowBook, setSel
         setSelectedBook(book)
         setShowBook(!showBook)
     }
+    const renderBookFocusKey = (e, book) => {
+		if (e.key === "Enter") {
+			renderBookFocus(book)
+		}
+	}
 
     const nextBook = () => {
         setIndex((prevIndex) => (prevIndex + 1) % book.length);
@@ -35,6 +40,8 @@ export default function Carrousel({ book, setBook, showBook, setShowBook, setSel
                     onClick={() => renderBookFocus(book)}
                     removeBtn={true}
                     remove={(e) => removeBookFromLibrary(book.id, e)}
+					onKeyDown={(e) => renderBookFocusKey(e, book)}
+
                 />
             ))}
             {book.length > 5 && (
