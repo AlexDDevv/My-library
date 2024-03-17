@@ -13,7 +13,7 @@
         transform: scale(1.05);
     }
     &:focus {
-        outline: 1px solid $title-color;
+        outline: 2px solid $title-color;
     }
 
     .book-cover {
