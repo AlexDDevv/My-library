@@ -26,12 +26,9 @@ export default function ResearchContent() {
 
 		setSearchError(false)
 	}
-	const handleKey = (e) => {
-		if (e.key === "Enter") {
-			searchBook()
-		}
-	}
-	const handleClick = () => {
+
+	const handleClick = (e) => {
+		e.preventDefault()
 		searchBook()
 	}
 	const clearInput = () => {
@@ -82,24 +79,25 @@ export default function ResearchContent() {
 					<section className="research-section">
 						<div className="find-book">
 							<h1 className="title-search">Trouves un livre</h1>
-							<div className="search-bar">
+							<form className="search-bar" onSubmit={(e) => handleClick(e)}>
 								<div className="input">
+									<label className='sr-only' htmlFor="searchBar">Nom du livre recherché</label>
 									<input
 										type="text"
 										placeholder="Entres le nom d'un livre"
 										id="searchBar"
 										value={search}
 										onChange={e => setSearch(e.target.value)}
-										onKeyDown={handleKey}
 									/>
 									{search && (
 										<i onClick={clearInput} className="fa-solid fa-xmark"></i>
 									)}
 								</div>
-								<button className='search-btn' onClick={handleClick}>
+								<button className='search-btn' type='submit'>
 									<i className="fa-solid fa-magnifying-glass"></i>
+									<span className="sr-only">Rechercher un livre</span>
 								</button>
-							</div>
+							</form>
 							{searchError && (
 								<span className='error-search'>Entres le nom d'un livre</span>
 							)}
@@ -109,11 +107,12 @@ export default function ResearchContent() {
 								return (
 									<BookCard
 										key={book.id}
+										onClick={() => renderBookFocus(book)}
+										onKeyDown={(e) => renderBookFocusKey(e, book)}
+										bookName={book.volumeInfo.title}
 										thumbnail={book.volumeInfo.imageLinks?.smallThumbnail ?? 'URL_PAR_DEFAUT'}
 										title={book.volumeInfo.title}
 										author={book.volumeInfo.authors}
-										onClick={() => renderBookFocus(book)}
-										onKeyDown={(e) => renderBookFocusKey(e, book)}
 									/>
 								)
 							})}

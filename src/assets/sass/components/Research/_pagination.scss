@@ -4,7 +4,7 @@
 
     .pagination-btn {
         background: transparent;
-        border: 1px solid $title-color;
+        border: 1px solid $border-color;
         border-radius: 5px;
         color: $title-color;
         font-family: $body-font;
@@ -14,9 +14,14 @@
         padding: 5px;
         cursor: pointer;
 
+        &:focus {
+            outline: 2px solid $title-color;
+            border: none;
+        }
+
         &.active {
-            background: $title-color;
-            color: white;
+            background: $active-bg;
+            color: $title-color;
         }
     }
 }

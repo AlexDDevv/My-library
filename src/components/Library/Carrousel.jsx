@@ -34,13 +34,14 @@ export default function Carrousel({ book, setBook, showBook, setShowBook, setSel
             {[...book.slice(index), ...book.slice(0, index)].slice(0, 5).map((book) => (
                 <BookCard
                     key={book.id}
+                    onClick={() => renderBookFocus(book)}
+					onKeyDown={(e) => renderBookFocusKey(e, book)}
                     thumbnail={book.volumeInfo.imageLinks?.smallThumbnail ?? 'URL_PAR_DEFAUT'}
+                    bookName={book.volumeInfo.title}
                     title={book.volumeInfo.title}
                     author={book.volumeInfo.authors}
-                    onClick={() => renderBookFocus(book)}
                     removeBtn={true}
                     remove={(e) => removeBookFromLibrary(book.id, e)}
-					onKeyDown={(e) => renderBookFocusKey(e, book)}
 
                 />
             ))}
@@ -48,9 +49,11 @@ export default function Carrousel({ book, setBook, showBook, setShowBook, setSel
                 <>
                     <button className="carrousel-btn previous" onClick={prevBook}>
                         <i className="fa-solid fa-chevron-left"></i>
+                        <span className="sr-only">Livres précédents</span>
                     </button>
                     <button className="carrousel-btn next" onClick={nextBook}>
                         <i className="fa-solid fa-chevron-right"></i>
+                        <span className="sr-only">Livres suivants</span>
                     </button>
                 </>
             )}
