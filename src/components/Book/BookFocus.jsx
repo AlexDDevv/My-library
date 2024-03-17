@@ -23,14 +23,14 @@ export default function BookFocus({ onClick, imageLinks, title, subtitle, author
                         <p className="content">{blurb}</p>
                     </div>
                     <div className="more-infos">
-                        <div className="editors">
-                            <h3 className="editors">Éditeurs</h3>
-                            <p className="editors-content">{editors}</p>
-                        </div>
                         <div className="langue-pages">
                             <h3 className="other-info">Informations</h3>
                             <p className="language">langue : {language}</p>
                             <p className="pages-nb">{pageNb} pages</p>
+                        </div>
+                        <div className="editors">
+                            <h3 className="editors">Éditeurs</h3>
+                            <p className="editors-content">{editors}</p>
                         </div>
                         <div className="identifier">
                             <h3 className="isbn">ISBN</h3>

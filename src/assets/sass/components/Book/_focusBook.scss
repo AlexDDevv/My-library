@@ -1,0 +1,141 @@
+.research-result {
+    width: 90%;
+    margin: 0 auto;
+
+    .bookFocus-container {
+        background: $container-bg;
+        border-radius: 20px;
+        padding: 20px 50px;
+        position: relative;
+        @include between;
+    
+        @media screen and (max-width: 1060px) {
+            padding: 30px;
+        }
+        @media screen and (max-width: 700px) {
+            padding: 30px 20px;     
+        }
+    
+        h3 {
+            color: $title-color;
+            font-family: $title-font;
+            margin-bottom: 10px;
+    
+            @media screen and (max-width: 850px) {
+                font-size: 1rem;
+            }
+        }
+        p {
+            color: $body-color;
+            font-family: $body-font;
+        }
+        .arrow-back {
+            height: 30px;
+            width: 30px;
+            border: 1px solid $title-color;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+    
+            i {
+                color: $title-color;
+            }
+        }
+        .book-cover {
+            height: 250px;
+            border-radius: 5px;
+            box-shadow: -15px 15px 15px 0 rgba(0, 0, 0, 0.2);
+
+            @media screen and (max-width: 700px) {
+                box-shadow: 15px 15px 15px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            img {
+                height: 100%;
+                border-radius: 5px;
+                object-fit: cover;
+            }
+        }
+        .book-infos {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+
+            .title-author {
+                margin-bottom: 15px;
+    
+                h2 {
+                    color: $title-color;
+                    font-family: $title-font;
+                    margin-bottom: 5px;
+    
+                    @media screen and (max-width: 850px) {
+                        font-size: 1rem;
+                    }
+                }
+                .author {
+                    color: $body-color;
+                    font-family: $body-font;
+                    font-size: 1.2rem;
+    
+                    @media screen and (max-width: 850px) {
+                        font-size: 1rem;
+                    }
+                }
+            }
+            .content {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+    
+                @media screen and (max-width: 700px) {
+                    order: 2;
+                }
+                .resume {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    max-width: 1000px;
+            
+                    .description {
+                        margin-bottom: 0;
+                    }
+                    .content {
+                        line-height: 23px;
+                    }
+                }
+                .more-infos {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 50px;
+
+                    .language {
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+            .add-book {
+                background: $btn-color;
+                border: none;
+                border-radius: 5px;
+                color: white;
+                font-family: $body-font;
+                font-weight: 900;
+                letter-spacing: 1px;
+                padding: 5px 0;
+                cursor: pointer;
+                width: 90px;
+                margin-top: 20px;
+
+                @media screen and (max-width: 500px) {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}
