@@ -63,6 +63,11 @@ export default function ResearchContent() {
 		setShowBook(false)
 		setSelectedBook(null)
 	}
+	const goBackWithKey = (e) => {
+		if (e.key === "Enter") {
+			goBack()
+		}
+	}
 
 	const addBookToLibrary = () => {
 		const existingBooks = JSON.parse(localStorage.getItem("books")) || [];
@@ -126,6 +131,7 @@ export default function ResearchContent() {
 						<section className="research-result">
 							<BookFocus
 								onClick={goBack}
+								onKeyDown={(e) => goBackWithKey(e)}
 								imageLinks={selectedBook.volumeInfo.imageLinks.smallThumbnail ?? 'URL_PAR_DEFAUT'}
 								title={selectedBook.volumeInfo.title}
 								subtitle={selectedBook.volumeInfo.subtitle}

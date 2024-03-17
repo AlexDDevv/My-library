@@ -16,6 +16,11 @@ export default function LibraryContent() {
 		setShowBook(false)
 		setSelectedBook(null)
 	}
+	const goBackWithKey = (e) => {
+		if (e.key === "Enter") {
+			goBack()
+		}
+	}
 
 	return (
 		<>
@@ -38,6 +43,7 @@ export default function LibraryContent() {
 						<section className='research-result'>
 							<BookFocus
 								onClick={goBack}
+								onKeyDown={(e) => goBackWithKey(e)}
 								imageLinks={selectedBook.volumeInfo.imageLinks.smallThumbnail ?? 'URL_PAR_DEFAUT'}
 								title={selectedBook.volumeInfo.title}
 								subtitle={selectedBook.volumeInfo.subtitle}

@@ -2,10 +2,10 @@ import React from 'react'
 import Cover from './Cover'
 import TitleAuthor from './TitleAuthor'
 
-export default function BookFocus({ onClick, imageLinks, title, subtitle, author, showAddBtn, addBook, blurb, editors, language, pageNb, isbn }) {
+export default function BookFocus({ onClick, onKeyDown, imageLinks, title, subtitle, author, showAddBtn, addBook, blurb, editors, language, pageNb, isbn }) {
     return (
         <div className='bookFocus-container'>
-            <div className="arrow-back" onClick={onClick}>
+            <div className="arrow-back" onClick={onClick} tabIndex={0} onKeyDown={onKeyDown}>
                 <i className="fa-solid fa-arrow-left"></i>
             </div>
             <Cover
