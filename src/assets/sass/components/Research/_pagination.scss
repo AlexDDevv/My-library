@@ -3,10 +3,10 @@
     gap: 10px;
 
     .pagination-btn {
-        background: $btn-color;
-        border: none;
+        background: transparent;
+        border: 1px solid $title-color;
         border-radius: 5px;
-        color: white;
+        color: $title-color;
         font-family: $body-font;
         font-weight: 900;
         height: 30px;
@@ -16,6 +16,7 @@
 
         &.active {
             background: $title-color;
+            color: white;
         }
     }
 }
