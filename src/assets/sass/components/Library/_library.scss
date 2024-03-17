@@ -26,8 +26,10 @@
     
                     .delete-book {
                         background: transparent;
-                        border: 1px solid $btn-color;
+                        border: 1px solid $body-color;
                         border-radius: 1px;
+                        color: $body-color;
+                        font-weight: 700;
                         padding: 2px;
                         @include center;
                         cursor: pointer;
@@ -35,17 +37,10 @@
                         width: 100%;
         
                         &:hover {
-                            background: $btn-color;
-        
-                            i {
-                                color: white;
-                            }
+                            background: $body-color;
+                            border-color: $body-color;
+                            color: $body-bg;
                         }
-        
-                        i {
-                            color: $btn-color;
-                        }
-        
                     }
                 }
             }
