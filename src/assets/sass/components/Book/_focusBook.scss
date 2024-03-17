@@ -45,6 +45,9 @@
             &:focus {
                 outline: 2px solid $title-color;
             }
+            &:active {
+                outline: none;
+            }
     
             i {
                 color: $title-color;
