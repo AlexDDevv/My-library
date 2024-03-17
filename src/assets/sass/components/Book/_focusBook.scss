@@ -41,6 +41,10 @@
             position: absolute;
             top: 15px;
             right: 15px;
+
+            &:focus {
+                outline: 2px solid $title-color;
+            }
     
             i {
                 color: $title-color;
