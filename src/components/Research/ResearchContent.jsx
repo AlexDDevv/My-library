@@ -53,6 +53,11 @@ export default function ResearchContent() {
 		setSelectedBook(book)
 		setShowBook(!showBook)
 	}
+	const renderBookFocusKey = (e, book) => {
+		if (e.key === "Enter") {
+			renderBookFocus(book)
+		}
+	}
 
 	const goBack = () => {
 		setShowBook(false)
@@ -103,6 +108,7 @@ export default function ResearchContent() {
 										title={book.volumeInfo.title}
 										author={book.volumeInfo.authors}
 										onClick={() => renderBookFocus(book)}
+										onKeyDown={(e) => renderBookFocusKey(e, book)}
 									/>
 								)
 							})}

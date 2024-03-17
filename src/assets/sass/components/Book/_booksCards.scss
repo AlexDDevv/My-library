@@ -12,6 +12,10 @@
     &:hover {
         transform: scale(1.05);
     }
+    &:focus {
+        outline: 1px solid $title-color;
+    }
+
     .book-cover {
         height: 200px;
 
