@@ -16,7 +16,7 @@ export default function BookCard({ thumbnail, title, author, onClick, removeBtn,
                 <div className="btn-container">
                     {removeBtn && (
                         <button className="delete-book" onClick={remove}>
-                            <i className="fa-solid fa-xmark"></i>
+                            Retirer
                         </button>
                     )}
                 </div>
