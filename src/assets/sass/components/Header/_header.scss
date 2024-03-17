@@ -41,8 +41,8 @@
                     background: transparent;
                 }
                 .active-nav-link {
-                    background: $btn-color;
-                    color: $container-bg;
+                    background: $active-bg;
+                    color: $title-color;
                 }
             }
         }

@@ -26,9 +26,9 @@
     
                     .delete-book {
                         background: transparent;
-                        border: 1px solid $body-color;
-                        border-radius: 1px;
-                        color: $body-color;
+                        border: 1px solid $title-color;
+                        border-radius: 2px;
+                        color: $title-color;
                         font-weight: 700;
                         padding: 2px;
                         @include center;
@@ -37,8 +37,8 @@
                         width: 100%;
         
                         &:hover {
-                            background: $body-color;
-                            border-color: $body-color;
+                            background: $title-color;
+                            border-color: $title-color;
                             color: $body-bg;
                         }
                     }
