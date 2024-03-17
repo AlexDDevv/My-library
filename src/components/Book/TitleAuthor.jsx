@@ -3,11 +3,11 @@ import React from 'react'
 export default function TitleAuthor({ title, subtitle, author }) {
     return (
         <div className="title-author">
-            <h2 className="title">{title}</h2>
+            <h1 className="title">{title}</h1>
             {subtitle && (
-                <h3 className="subtitle">{subtitle}</h3>
+                <h2 className="subtitle">{subtitle}</h2>
             )}
-            <span className="author">{author}</span>
+            <h2 className="author">{author}</h2>
         </div>
     )
 }
