@@ -1,15 +1,20 @@
 .header {
     @include between;
+    gap: 20px;
+
+    @media screen and (max-width: 500px) {
+        flex-direction: column;
+    }
 
     .logo-container {
         height: 60px;
         width: 100px;
-        border-radius: 5px;
+        border-radius: 3px;
 
         .logo {
             width: 100%;
             height: 100%;
-            border-radius: 5px;
+            border-radius: 3px;
             object-fit: cover;
         }
     }
@@ -17,32 +22,39 @@
         .nav-list {
             display: flex;
             align-items: center;
+            gap: 15px;
 
-            .nav-li {
-                padding: 5px 0;
+            @media screen and (max-width: 500px) {
+                justify-content: center;
+            }
 
-                a {
-                    font-family: $body-font;
-                    color: $body-color;
-                    font-size: 1.2rem;
-                    text-decoration: none;
-                    padding: 5px 15px;
-                    border-radius: 5px;
-                    
-                    @media screen and (max-width: 700px) {
-                        font-size: 1rem;
-                        padding: 5px 10px;
-                    }
-                    @media screen and (max-width: 500px) {
-                        font-size: 0.8rem;
-                    }
+            a {
+                font-family: $body-font;
+                color: $body-color;
+                font-size: 1.2rem;
+                text-decoration: none;
+                border-radius: 3px;
+                
+                @media screen and (max-width: 768px) {
+                    font-size: 1rem;
                 }
-                .nav-link {
-                    background: transparent;
+                @media screen and (max-width: 375px) {
+                    font-size: 0.8rem;
                 }
-                .active-nav-link {
-                    background: $active-bg;
-                    color: $title-color;
+            }
+            .nav-link {
+                background: transparent;
+            }
+            .active-nav-link {
+                background: $active-bg;
+                color: $title-color;
+                padding: 5px 15px;
+
+                @media screen and (max-width: 768px) {
+                    padding: 5px 10px;
+                }
+                @media screen and (max-width: 375px) {
+                    padding: 4px 8px;
                 }
             }
         }
