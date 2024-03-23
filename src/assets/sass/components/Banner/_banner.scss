@@ -1,10 +1,9 @@
 .banner {
     height: max(200px, 15vw);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     @media screen and (max-width: 768px) {
         height: max(150px, 26vw);
-        margin-bottom: 10px;
     }
     @media screen and (max-width: 375px) {
         height: 125px;
