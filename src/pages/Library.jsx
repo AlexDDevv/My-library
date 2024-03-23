@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer'
 
 export default function Library() {
     return (
-        <div className="container">
+        <div className="container for-library">
             <Header />
             <LibraryContent />
             <Footer />
