@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer'
 
 export default function Research() {
     return (
-        <div className="container">
+        <div className="container for-research">
             <Header />
             <ReasearchContent />
             <Footer />
