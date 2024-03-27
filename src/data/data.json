@@ -50,5 +50,17 @@
             "quote": "La lecture nourrit l'âme, comme le pain nourrit le corps.",
             "author": "Alphonse Karr"
         }
+    ],
+    "btnCarrousel": [
+        {
+            "className": "carrousel-btn previous",
+            "icon": "fa-solid fa-chevron-left",
+            "span": "Livres précédents"
+        },
+        {
+            "className": "carrousel-btn next",
+            "icon": "fa-solid fa-chevron-right",
+            "span": "Livres suivants"
+        }
     ]
 }

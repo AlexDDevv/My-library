@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import BookCard from '../Book/BookCard'
+import BtnCarrousel from './BtnCarrousel'
+import datas from "../../data/data.json"
 
 export default function Carrousel({ book, setBook, showBook, setShowBook, setSelectedBook }) {
     const [index, setIndex] = useState(0)
@@ -46,16 +48,15 @@ export default function Carrousel({ book, setBook, showBook, setShowBook, setSel
                 />
             ))}
             {book.length > 5 && (
-                <>
-                    <button className="carrousel-btn previous" onClick={prevBook}>
-                        <i className="fa-solid fa-chevron-left"></i>
-                        <span className="sr-only">Livres précédents</span>
-                    </button>
-                    <button className="carrousel-btn next" onClick={nextBook}>
-                        <i className="fa-solid fa-chevron-right"></i>
-                        <span className="sr-only">Livres suivants</span>
-                    </button>
-                </>
+                datas.btnCarrousel.map((item, i) => (
+                    <BtnCarrousel
+                        key={i}
+                        side={item.className}
+                        onClick={item.className === "carrousel-btn previous" ? prevBook : nextBook}
+                        icon={item.icon}
+                        span={item.span}
+                    />
+                ))
             )}
         </div>
     )
