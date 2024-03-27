@@ -62,5 +62,27 @@
             "icon": "fa-solid fa-chevron-right",
             "span": "Livres suivants"
         }
+    ],
+    "breakPoints": [
+        {
+            "maxWidth": 1024,
+            "numBooks": 5
+        },
+        {
+            "maxWidth": 800,
+            "numBooks": 4
+        },
+        {
+            "maxWidth": 620,
+            "numBooks": 3
+        },
+        {
+            "maxWidth": 425,
+            "numBooks": 2
+        },
+        {
+            "maxWidth": 0,
+            "numBooks": 1
+        }
     ]
 }
