@@ -1,11 +1,9 @@
 import React from 'react'
 
-export default function Pagination({ totalBooks, booksPerPage, setCurrentPage, currentPage }) {
-    let pages = []
+export default function Pagination({ totalBooks, nbBooksToShow, setCurrentPage, currentPage }) {
+    const totalPages = Math.ceil(totalBooks / nbBooksToShow);
+    const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
 
-    for(let i = 1; i <= Math.ceil(totalBooks/booksPerPage); i++) {
-        pages.push(i)
-    }
   return (
     <div className='pagination-container'>
         {
