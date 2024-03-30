@@ -1,18 +1,39 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import apiKey from '../../config'
 import BookCard from '../Book/BookCard'
 import Pagination from './Pagination'
 import BookFocus from '../Book/BookFocus'
+import datas from "../../data/data.json"
 
 export default function ResearchContent() {
 	const [search, setSearch] = useState("")
 	const [searchError, setSearchError] = useState(false)
 	const [bookData, setData] = useState([])
 	const [currentPage, setCurrentPage] = useState(1)
-	const [booksPerPage, setBooksPerPage] = useState(5)
 	const [selectedBook, setSelectedBook] = useState(null)
 	const [showBook, setShowBook] = useState(false)
+	const [nbBooksToShow, setNbBooksToShow] = useState(5);
+
+    useEffect(() => {
+        function handleResize() {
+            const breakpoints = datas.breakPointsResearch.sort((a, b) => b.maxWidth - a.maxWidth);
+            const { numBooks } = breakpoints.find(bp => window.innerWidth > bp.maxWidth) || breakpoints[breakpoints.length - 1];
+            setNbBooksToShow(numBooks);
+        }
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+	useEffect(() => {
+		setCurrentPage(currentPage => {
+			const totalPages = Math.ceil(filteredBooks.length / nbBooksToShow);
+			return Math.min(currentPage, totalPages);
+		});
+	}, [nbBooksToShow]);
+	
 
 	const searchBook = () => {
 		if (search.trim() === "") {
@@ -24,6 +45,7 @@ export default function ResearchContent() {
 			.then(res => res.json())
 			.then(data => setData(data.items));
 
+		setCurrentPage(1)
 		setSearchError(false)
 	}
 
@@ -42,9 +64,9 @@ export default function ResearchContent() {
 		return dateA - dateB
 	})
 
-	const lastBookIndex = currentPage * booksPerPage
-	const firstBookIndex = lastBookIndex - booksPerPage
-	const currentBooks = filteredBooks.slice(firstBookIndex, lastBookIndex)
+	const lastBookIndex = currentPage * nbBooksToShow
+	const firstBookIndex = lastBookIndex - nbBooksToShow
+	const currentBooks = filteredBooks.slice(firstBookIndex, firstBookIndex + nbBooksToShow)
 
 	const renderBookFocus = (book) => {
 		setSelectedBook(book)
@@ -120,7 +142,7 @@ export default function ResearchContent() {
 
 						<Pagination
 							totalBooks={filteredBooks.length}
-							booksPerPage={booksPerPage}
+							nbBooksToShow={nbBooksToShow}
 							setCurrentPage={setCurrentPage}
 							currentPage={currentPage}
 						/>
