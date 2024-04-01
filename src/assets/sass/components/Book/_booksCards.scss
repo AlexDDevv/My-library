@@ -39,14 +39,23 @@
         text-overflow: ellipsis;
 
         .title {
+            color: $title-color;
             font-family: $title-font;
             font-size: 0.8rem;
-            color: $title-color;
+            margin-bottom: 5px;
+
+            @media screen and (max-width: 425px) {
+                font-size: 0.75rem;
+            }
         }
         .author {
-            font-family: $body-font;
-            font-size: 0.8rem;
             color: $body-color;
+            font-family: $body-font;
+            font-size: 0.75rem;
+
+            @media screen and (max-width: 425px) {
+                font-size: 0.7rem;
+            }
         }
     }
 }

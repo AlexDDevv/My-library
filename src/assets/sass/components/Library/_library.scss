@@ -37,7 +37,20 @@
                     background: $body-bg;
                     height: 320px;
                     width: 150px;
-                    
+
+                    .title {
+                        font-size: 0.8rem;
+                    }
+                    .author {
+                        font-size: 0.75rem;
+                    }
+                    .multiple-authors {
+                        .author {
+                            &:last-child {
+                                display: none;
+                            }
+                        }
+                    }
                     .btn-container {
                         width: 85%;
                         margin: 0 auto;
