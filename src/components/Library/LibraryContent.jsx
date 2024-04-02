@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Carrousel from './Carrousel'
 import BookFocus from '../Book/BookFocus'
 
-export default function LibraryContent() {
+export default function LibraryContent({ isBookSelected, setIsBookSelected }) {
 	const [selectedBook, setSelectedBook] = useState(null)
 	const [showBook, setShowBook] = useState(false)
 	const [book, setBook] = useState([])
@@ -15,6 +15,7 @@ export default function LibraryContent() {
 	const goBack = () => {
 		setShowBook(false)
 		setSelectedBook(null)
+		setIsBookSelected(!isBookSelected)
 	}
 	const goBackWithKey = (e) => {
 		if (e.key === "Enter") {
@@ -35,6 +36,8 @@ export default function LibraryContent() {
 								showBook={showBook}
 								setShowBook={setShowBook}
 								setSelectedBook={setSelectedBook}
+								isBookSelected={isBookSelected}
+								setIsBookSelected={setIsBookSelected}
 							/>
 						</section>
 					</>
