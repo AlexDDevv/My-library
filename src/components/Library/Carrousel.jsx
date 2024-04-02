@@ -3,7 +3,7 @@ import BookCard from '../Book/BookCard'
 import BtnCarrousel from './BtnCarrousel'
 import datas from "../../data/data.json"
 
-export default function Carrousel({ book, setBook, showBook, setShowBook, setSelectedBook }) {
+export default function Carrousel({ book, setBook, showBook, setShowBook, setSelectedBook, isBookSelected, setIsBookSelected }) {
     const [index, setIndex] = useState(0)
     const [nbBooksToShow, setNbBooksToShow] = useState(5);
 
@@ -22,6 +22,7 @@ export default function Carrousel({ book, setBook, showBook, setShowBook, setSel
     const renderBookFocus = (book) => {
         setSelectedBook(book)
         setShowBook(!showBook)
+        setIsBookSelected(!isBookSelected)
     }
     const renderBookFocusKey = (e, book) => {
         if (e.key === "Enter") {

@@ -6,7 +6,7 @@ import Pagination from './Pagination'
 import BookFocus from '../Book/BookFocus'
 import datas from "../../data/data.json"
 
-export default function ResearchContent() {
+export default function ResearchContent({ isBookSelected, setIsBookSelected }) {
 	const [search, setSearch] = useState("")
 	const [searchError, setSearchError] = useState(false)
 	const [bookData, setData] = useState([])
@@ -71,6 +71,7 @@ export default function ResearchContent() {
 	const renderBookFocus = (book) => {
 		setSelectedBook(book)
 		setShowBook(!showBook)
+		setIsBookSelected(!isBookSelected)
 	}
 	const renderBookFocusKey = (e, book) => {
 		if (e.key === "Enter") {
@@ -81,6 +82,7 @@ export default function ResearchContent() {
 	const goBack = () => {
 		setShowBook(false)
 		setSelectedBook(null)
+		setIsBookSelected(!isBookSelected)
 	}
 	const goBackWithKey = (e) => {
 		if (e.key === "Enter") {
