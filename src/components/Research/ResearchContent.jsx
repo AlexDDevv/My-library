@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import apiKey from '../../config'
 import BookCard from '../Book/BookCard'
 import Pagination from './Pagination'
 import BookFocus from '../Book/BookFocus'
 import datas from "../../data/data.json"
+const apiKey = import.meta.env.VITE_LIBRARY_API_KEY
 
 export default function ResearchContent({ isBookSelected, setIsBookSelected }) {
 	const [search, setSearch] = useState("")
