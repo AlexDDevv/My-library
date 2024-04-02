@@ -5,9 +5,10 @@ import Footer from '../components/Footer/Footer'
 
 export default function Research() {
     const [isBookSelected, setIsBookSelected] = useState(false)
+    const tablet = innerWidth <= 768
 
     return (
-        <div className={`container for-research ${isBookSelected ? "change-height" : ""}`}>
+        <div className={`container for-research ${isBookSelected && tablet ? "change-height" : ""}`}>
             <Header />
             <ReasearchContent 
                 isBookSelected={isBookSelected}

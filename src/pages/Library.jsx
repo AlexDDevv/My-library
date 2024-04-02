@@ -5,9 +5,10 @@ import Footer from '../components/Footer/Footer'
 
 export default function Library() {
     const [isBookSelected, setIsBookSelected] = useState(false)
+    const tablet = innerWidth <= 768
 
     return (
-        <div className={`container library ${isBookSelected ? "change-height" : ""}`}>
+        <div className={`container library ${isBookSelected && tablet ? "change-height" : ""}`}>
             <Header />
             <LibraryContent 
                 isBookSelected={isBookSelected}
