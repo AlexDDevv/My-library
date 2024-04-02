@@ -10,8 +10,8 @@ export default function TitleAuthor({ title, subtitle, author }) {
                 <h2 className="subtitle">{subtitle}</h2>
             )}
             <div className={`author-container ${author.length > maxAuthor ? "multiple-authors" : ""}`}>
-                {author.map(author => (
-                    <h2 className="author">{author}</h2>
+                {author.map((author, i) => (
+                    <h2 key={i} className="author">{author}</h2>
                 ))}
             </div>
         </div>
