@@ -9,23 +9,23 @@ const apiKey = import.meta.env.VITE_LIBRARY_API_KEY
 export default function ResearchContent({ isBookSelected, setIsBookSelected }) {
 	const [search, setSearch] = useState("")
 	const [searchError, setSearchError] = useState(false)
-	const [bookData, setData] = useState([])
+	const [bookData, setBookData] = useState([])
 	const [currentPage, setCurrentPage] = useState(1)
 	const [selectedBook, setSelectedBook] = useState(null)
 	const [showBook, setShowBook] = useState(false)
 	const [nbBooksToShow, setNbBooksToShow] = useState(5);
 
-    useEffect(() => {
-        function handleResize() {
-            const breakpoints = datas.breakPointsResearch.sort((a, b) => b.maxWidth - a.maxWidth);
-            const { numBooks } = breakpoints.find(bp => window.innerWidth > bp.maxWidth) || breakpoints[breakpoints.length - 1];
-            setNbBooksToShow(numBooks);
-        }
+	useEffect(() => {
+		function handleResize() {
+			const breakpoints = datas.breakPointsResearch.sort((a, b) => b.maxWidth - a.maxWidth);
+			const { numBooks } = breakpoints.find(bp => window.innerWidth > bp.maxWidth) || breakpoints[breakpoints.length - 1];
+			setNbBooksToShow(numBooks);
+		}
 
-        window.addEventListener('resize', handleResize);
-        handleResize();
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+		window.addEventListener('resize', handleResize);
+		handleResize();
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
 
 	useEffect(() => {
 		setCurrentPage(currentPage => {
@@ -33,20 +33,33 @@ export default function ResearchContent({ isBookSelected, setIsBookSelected }) {
 			return Math.min(currentPage, totalPages);
 		});
 	}, [nbBooksToShow]);
-	
 
 	const searchBook = () => {
 		if (search.trim() === "") {
-			setSearchError(true)
+			setSearchError("Entrez le nom d'un livre ou d'un auteur");
 			return;
 		}
-
+	
 		fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${apiKey}`)
-			.then(res => res.json())
-			.then(data => setData(data.items));
-
-		setCurrentPage(1)
-		setSearchError(false)
+			.then(res => {
+				if (!res.ok) {
+					throw new Error("Erreur lors de la recherche de livres");
+				}
+				return res.json();
+			})
+			.then(data => {
+				if (!data.items || data.items.length === 0) {
+					setSearchError("Aucun livre trouvé pour votre recherche.");
+				} else {
+					setBookData(data.items);
+					setCurrentPage(1);
+					setSearchError(false);
+				}
+			})
+			.catch(error => {
+				console.error("Erreur lors de la recherche de livres :", error);
+				window.location.href = '/notFound'
+			});
 	}
 
 	const handleClick = (e) => {
@@ -94,7 +107,7 @@ export default function ResearchContent({ isBookSelected, setIsBookSelected }) {
 		const existingBooks = JSON.parse(localStorage.getItem("books")) || [];
 		const newBooks = [...existingBooks, selectedBook];
 		localStorage.setItem("books", JSON.stringify(newBooks));
-    }
+	}
 
 	return (
 		<>
@@ -108,7 +121,7 @@ export default function ResearchContent({ isBookSelected, setIsBookSelected }) {
 									<label className='sr-only' htmlFor="searchBar">Nom du livre recherché</label>
 									<input
 										type="text"
-										placeholder="Entres le nom d'un livre"
+										placeholder="Entrez le nom d'un livre ou d'un auteur"
 										id="searchBar"
 										value={search}
 										onChange={e => setSearch(e.target.value)}
@@ -123,7 +136,7 @@ export default function ResearchContent({ isBookSelected, setIsBookSelected }) {
 								</button>
 							</form>
 							{searchError && (
-								<span className='error-search'>Entres le nom d'un livre</span>
+								<span className='error-search'>{searchError}</span>
 							)}
 						</div>
 						<div className="books-container">
