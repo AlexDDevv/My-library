@@ -4,7 +4,7 @@ import Home from "../../pages/HomePage"
 import Library from "../../pages/Library"
 import Contact from "../../pages/Contact"
 import Research from "../../pages/Research"
-import NotFoundPage from "../../pages/NotFoundPage"
+import PageNotFound from "../../pages/NotFoundPage"
 
 export default function IndexRoutes() {
   return (
@@ -14,8 +14,8 @@ export default function IndexRoutes() {
                 <Route path='/library' element={<Library />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/recherche' element={<Research />} />
-                <Route path='/notFound' element={<NotFoundPage />} />
-                <Route path='*' element={<NotFoundPage />} />
+                <Route path='/notFound' element={<PageNotFound />} />
+                <Route path='*' element={<PageNotFound />} />
             </Routes>
         </BrowserRouter>
   )
