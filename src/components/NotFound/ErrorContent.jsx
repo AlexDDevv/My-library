@@ -2,7 +2,7 @@ import React from 'react'
 import notFoundImg from "../../assets/images/notFoundImg.webp"
 import { Link } from 'react-router-dom'
 
-export default function NotFound() {
+export default function ErrorContent() {
     return (
         <section className="section-notFound">
             <div className="img-container">

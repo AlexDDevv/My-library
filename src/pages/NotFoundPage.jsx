@@ -1,10 +1,10 @@
 import React from 'react'
-import NotFound from '../components/NotFound/NotFound'
+import ErrorContent from '../components/NotFound/ErrorContent'
 
 export default function NotFoundPage() {
     return (
         <div className="container for-notFound">
-            <NotFound />
+            <ErrorContent />
         </div>
     )
 }
