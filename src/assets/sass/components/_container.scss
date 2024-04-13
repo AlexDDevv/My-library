@@ -1,5 +1,5 @@
 .container {
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -11,14 +11,6 @@
     }
     @media screen and (max-width: 768px) {
         padding: 10px;    
-    }
-}
-.for-home {
-    @media screen and (max-width: 425px) {
-        height: 100%;  
-    }
-    @media screen and (min-width: 425px) and (max-width: 1024px) {
-        height: 100dvh;
     }
 }
 .for-research {
