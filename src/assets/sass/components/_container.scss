@@ -13,8 +13,8 @@
         padding: 10px;    
     }
 }
-.for-home {
-    @media screen and (max-width: 768px) {
+.for-home, .for-contact {
+    @media screen and (max-width: 425px) {
         height: 100%;  
     }
 }
