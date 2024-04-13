@@ -16,18 +16,8 @@
         padding: 10px;
     }
 }
-.for-home {
-    @media screen and (max-width: 500px) {
-        height: 100%;
-    }
-}
 .for-research {
     gap: 30px;
-}
-.for-contact {
-    @media screen and (max-width: 425px) {
-        justify-content: normal;
-    }
 }
 .for-notFound {
     @include center;
