@@ -19,7 +19,7 @@
         outline: none;
     }
 
-    @media screen and (max-width: 425px) {
+    @media screen and (max-width: 768px) {
         width: 140px;
     }
 
@@ -44,7 +44,7 @@
             font-size: 0.8rem;
             margin-bottom: 5px;
 
-            @media screen and (max-width: 425px) {
+            @media screen and (max-width: 768px) {
                 font-size: 0.75rem;
             }
         }
@@ -53,7 +53,7 @@
             font-family: $body-font;
             font-size: 0.75rem;
 
-            @media screen and (max-width: 425px) {
+            @media screen and (max-width: 768px) {
                 font-size: 0.7rem;
             }
         }
