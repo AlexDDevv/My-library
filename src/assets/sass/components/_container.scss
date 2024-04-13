@@ -17,6 +17,9 @@
     @media screen and (max-width: 425px) {
         height: 100%;  
     }
+    @media screen and (min-width: 425px) and (max-width: 1024px) {
+        height: 95vh;  
+    }
 }
 .for-research {
     gap: 30px;
