@@ -6,7 +6,7 @@ import BookFocus from '../Book/BookFocus'
 import datas from "../../data/data.json"
 const apiKey = import.meta.env.VITE_LIBRARY_API_KEY
 
-export default function ResearchContent({ isBookSelected, setIsBookSelected }) {
+export default function ResearchContent() {
 	const [search, setSearch] = useState("")
 	const [searchError, setSearchError] = useState(false)
 	const [bookData, setBookData] = useState([])
@@ -84,7 +84,6 @@ export default function ResearchContent({ isBookSelected, setIsBookSelected }) {
 	const renderBookFocus = (book) => {
 		setSelectedBook(book)
 		setShowBook(!showBook)
-		setIsBookSelected(!isBookSelected)
 	}
 	const renderBookFocusKey = (e, book) => {
 		if (e.key === "Enter") {
@@ -95,7 +94,6 @@ export default function ResearchContent({ isBookSelected, setIsBookSelected }) {
 	const goBack = () => {
 		setShowBook(false)
 		setSelectedBook(null)
-		setIsBookSelected(!isBookSelected)
 	}
 	const goBackWithKey = (e) => {
 		if (e.key === "Enter") {
