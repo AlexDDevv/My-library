@@ -1,19 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Header from '../components/Header/Header'
 import LibraryContent from '../components/Library/LibraryContent'
 import Footer from '../components/Footer/Footer'
 
 export default function Library() {
-    const [isBookSelected, setIsBookSelected] = useState(false)
-    const tablet = innerWidth <= 768
-
     return (
-        <div className={`container library ${isBookSelected && tablet ? "change-height" : ""}`}>
+        <div className="container for-library">
             <Header />
-            <LibraryContent 
-                isBookSelected={isBookSelected}
-                setIsBookSelected={setIsBookSelected}
-            />
+            <LibraryContent />
             <Footer />
         </div>
     )
