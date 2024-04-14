@@ -105,6 +105,7 @@ export default function ResearchContent() {
 		const existingBooks = JSON.parse(localStorage.getItem("books")) || [];
 		const newBooks = [...existingBooks, selectedBook];
 		localStorage.setItem("books", JSON.stringify(newBooks));
+		goBack();
 	}
 
 	return (
@@ -170,8 +171,8 @@ export default function ResearchContent() {
 								title={selectedBook.volumeInfo.title}
 								subtitle={selectedBook.volumeInfo.subtitle}
 								author={selectedBook.volumeInfo.authors}
-								showAddBtn={true}
-								addBook={addBookToLibrary}
+								addOrRemove={addBookToLibrary}
+								contentBtn={"Ajouter"}
 								blurb={selectedBook.volumeInfo.description}
 								editors={selectedBook.volumeInfo.publisher}
 								language={selectedBook.volumeInfo.language}
