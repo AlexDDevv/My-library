@@ -22,6 +22,14 @@ export default function LibraryContent() {
 		}
 	}
 
+	const removeBookFromLibrary = (bookId, e) => {
+        e.stopPropagation()
+        const updatedBooks = book.filter(book => book.id !== bookId)
+        setBook(updatedBooks)
+        localStorage.setItem("books", JSON.stringify(updatedBooks));
+		goBack()
+    }
+
 	return (
 		<>
 			<main className="library-container">
@@ -48,7 +56,8 @@ export default function LibraryContent() {
 								title={selectedBook.volumeInfo.title}
 								subtitle={selectedBook.volumeInfo.subtitle}
 								author={selectedBook.volumeInfo.authors}
-								showAddBtn={false}
+								addOrRemove={(e) => removeBookFromLibrary(selectedBook.id, e)}
+								contentBtn={"Retirer"}
 								blurb={selectedBook.volumeInfo.description}
 								editors={selectedBook.volumeInfo.publisher}
 								language={selectedBook.volumeInfo.language}

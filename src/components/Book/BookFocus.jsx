@@ -1,8 +1,9 @@
 import React from 'react'
 import Cover from './Cover'
 import TitleAuthor from './TitleAuthor'
+import BookBtn from './BookBtn'
 
-export default function BookFocus({ onClick, onKeyDown, imageLinks, title, subtitle, author, showAddBtn, addBook, blurb, editors, language, pageNb, isbn }) {
+export default function BookFocus({ onClick, onKeyDown, imageLinks, title, subtitle, author, addOrRemove, contentBtn, blurb, editors, language, pageNb, isbn }) {
     return (
         <div className='bookFocus-container'>
             <div className="arrow-back" onClick={onClick} tabIndex={0} onKeyDown={onKeyDown}>
@@ -38,9 +39,10 @@ export default function BookFocus({ onClick, onKeyDown, imageLinks, title, subti
                         </div>
                     </div>
                 </div>
-                {showAddBtn && (
-                    <button className="add-book" onClick={addBook}>Ajouter</button>
-                )}
+                <BookBtn 
+                    addOrRemove={addOrRemove}
+                    contentBtn={contentBtn}
+                />
             </div>
         </div>
     )
