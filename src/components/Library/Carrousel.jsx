@@ -44,6 +44,15 @@ export default function Carrousel({ book, setBook, showBook, setShowBook, setSel
         localStorage.setItem("books", JSON.stringify(updatedBooks));
     }
 
+    if (book.length === 0) {
+        return (
+            <div className="empty-caroussel">
+                <h2>Tu n'as pas encore enregistré de livre...</h2>
+                <p>Je t'invite à aller sur la page Recherche et trouver un livre qui pourrait te plaire!</p>
+            </div>
+        )
+    }
+
     return (
         <div className="books-container">
             <div className="view-books">
@@ -58,7 +67,6 @@ export default function Carrousel({ book, setBook, showBook, setShowBook, setSel
                         author={book.volumeInfo.authors}
                         removeBtn={true}
                         remove={(e) => removeBookFromLibrary(book.id, e)}
-
                     />
                 ))}
             </div>
