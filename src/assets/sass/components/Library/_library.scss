@@ -18,8 +18,15 @@
     }
     .library-content {
         background: $container-bg;
+        border: 1px solid $border-color;
         border-radius: 20px;
         padding: 30px 20px;
+        min-height: 300px;
+        @include center;
+
+        @media screen and (max-width: 768px) {
+            min-height: 250px;
+        }
 
         .books-container {
             flex-direction: column;
@@ -103,6 +110,31 @@
                         color: $btn-color;
                         font-size: 1rem;
                     }
+                }
+            }
+        }
+        .empty-caroussel {
+            @include center;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+
+            h2 {
+                color: $title-color;
+                font-family: $title-font;
+
+                @media screen and (max-width: 768px) {
+                    font-size: 1.2rem;
+                }
+            }
+            p {
+                color: $title-color;
+                font-family: $body-font;
+                font-size: 1.2rem;
+
+                @media screen and (max-width: 768px) {
+                    font-size: 1rem;
+                    line-height: 20px;
                 }
             }
         }
