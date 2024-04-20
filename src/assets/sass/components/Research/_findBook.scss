@@ -30,22 +30,24 @@
 
                 input {
                     border: 1px solid $border-color;
-                    border-radius: 5px;
+                    border-radius: 3px;
                     color: $body-color;
+                    font-family: $body-font;
+                    font-size: 1rem;
                     padding: 5px 10px;
                     margin-right: 5px;
                     width: 100%;
 
                     &:focus {
-                        outline: 1px solid $outline-color;
+                        outline: 2px solid $outline-color;
+                        outline-offset: 1px;
                     }
                     &::placeholder {
                         color: $body-color;
                         font-family: $body-font;
-                        font-size: 0.8rem;
+                        font-size: 0.85rem;
                         opacity: 0.8;
                     }
-
                 }
                 i {
                     color: $body-color;
@@ -61,9 +63,9 @@
                 background: $btn-color;
                 border: none;
                 padding: 5px;
-                width: 27.5px;
-                height: 27.5px;
-                border-radius: 5px;
+                width: 30px;
+                height: 30px;
+                border-radius: 3px;
                 transition: 0.2s;
                 cursor: pointer;
 
