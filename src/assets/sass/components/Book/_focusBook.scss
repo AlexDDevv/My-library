@@ -159,17 +159,28 @@
                     }
                 }
             }
-            .add-book {
-                background: $btn-color;
-                border: none;
+            .bookFocus-btn {
+                background: $body-bg;
+                border: 1px solid $body-color;
                 border-radius: 5px;
-                color: white;
+                color: $body-color;
                 font-family: $body-font;
-                font-weight: 900;
+                font-size: 1rem;
+                font-weight: 700;
                 letter-spacing: 1px;
                 padding: 5px 0;
                 cursor: pointer;
                 width: 90px;
+                transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+
+                &.active-btn {
+                    background: $body-color;
+                    color: white;
+                }
+                &:hover, &:focus {
+                    background: $body-color;
+                    color: white;
+                }
             }
         }
     }
