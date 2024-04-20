@@ -5,7 +5,7 @@ export default function Banner({ banner, location }) {
     <div className='banner'>
         <img 
             src={banner} 
-            alt="Image d'illustration d'une femme lisant un livre" 
+            alt="Une femme lisant un livre confortablement installée dans un fauteuil" 
             className={location} 
         />
     </div>
