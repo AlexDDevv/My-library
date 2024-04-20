@@ -4,6 +4,7 @@ import BookCard from '../Book/BookCard'
 import Pagination from './Pagination'
 import BookFocus from '../Book/BookFocus'
 import datas from "../../data/data.json"
+import ModaleAlert from '../Book/ModaleAlert'
 const apiKey = import.meta.env.VITE_LIBRARY_API_KEY
 
 export default function ResearchContent() {
@@ -14,6 +15,7 @@ export default function ResearchContent() {
 	const [selectedBook, setSelectedBook] = useState(null)
 	const [showBook, setShowBook] = useState(false)
 	const [nbBooksToShow, setNbBooksToShow] = useState(5);
+	const [showModale, setShowModale] = useState(false)
 
 	useEffect(() => {
 		function handleResize() {
@@ -39,7 +41,7 @@ export default function ResearchContent() {
 			setSearchError("Entrez le nom d'un livre ou d'un auteur");
 			return;
 		}
-	
+
 		fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${apiKey}`)
 			.then(res => {
 				if (!res.ok) {
@@ -101,11 +103,32 @@ export default function ResearchContent() {
 		}
 	}
 
-	const addBookToLibrary = () => {
+	const addBookToLibrary = (e) => {
 		const existingBooks = JSON.parse(localStorage.getItem("books")) || [];
-		const newBooks = [...existingBooks, selectedBook];
-		localStorage.setItem("books", JSON.stringify(newBooks));
-		goBack();
+		const bookAlreadyAdded = existingBooks.some(book => book.id === selectedBook.id);
+
+		if (bookAlreadyAdded) {
+			setShowModale(!showModale)
+			return
+		} else {
+			const newBooks = [...existingBooks, selectedBook];
+			localStorage.setItem("books", JSON.stringify(newBooks));
+
+			let runningAnimation = false
+			if (!runningAnimation) {
+				runningAnimation = true
+				e.target.textContent = "Ajouté!"
+				e.target.classList.add("active-btn")
+				setTimeout(() => {
+					runningAnimation = false
+					goBack()
+				}, 500)
+			} 
+		}
+	}
+
+	const handleModale = () => {
+		setShowModale(!showModale)
 	}
 
 	return (
@@ -171,14 +194,19 @@ export default function ResearchContent() {
 								title={selectedBook.volumeInfo.title}
 								subtitle={selectedBook.volumeInfo.subtitle}
 								author={selectedBook.volumeInfo.authors}
-								addOrRemove={addBookToLibrary}
-								contentBtn={"Ajouter"}
 								blurb={selectedBook.volumeInfo.description}
 								editors={selectedBook.volumeInfo.publisher}
 								language={selectedBook.volumeInfo.language}
 								pageNb={selectedBook.volumeInfo.pageCount}
 								isbn={selectedBook.volumeInfo.industryIdentifiers[0].identifier}
+								addOrRemove={addBookToLibrary}
+								contentBtn={"Ajouter"}
 							/>
+							{showModale && (
+								<ModaleAlert
+									closeModale={handleModale}
+								/>
+							)}
 						</section>
 					</>
 				)}

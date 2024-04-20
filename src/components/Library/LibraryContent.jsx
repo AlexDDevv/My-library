@@ -27,7 +27,17 @@ export default function LibraryContent() {
         const updatedBooks = book.filter(book => book.id !== bookId)
         setBook(updatedBooks)
         localStorage.setItem("books", JSON.stringify(updatedBooks));
-		goBack()
+		
+		let runningAnimation = false
+        if (!runningAnimation) {
+            runningAnimation = true
+            e.target.textContent = "Retiré!"
+            e.target.classList.add("active-btn") 
+            setTimeout(() => {
+                runningAnimation = false
+				goBack()
+            }, 500)
+        }
     }
 
 	return (
@@ -56,13 +66,13 @@ export default function LibraryContent() {
 								title={selectedBook.volumeInfo.title}
 								subtitle={selectedBook.volumeInfo.subtitle}
 								author={selectedBook.volumeInfo.authors}
-								addOrRemove={(e) => removeBookFromLibrary(selectedBook.id, e)}
-								contentBtn={"Retirer"}
 								blurb={selectedBook.volumeInfo.description}
 								editors={selectedBook.volumeInfo.publisher}
 								language={selectedBook.volumeInfo.language}
 								pageNb={selectedBook.volumeInfo.pageCount}
 								isbn={selectedBook.volumeInfo.industryIdentifiers[0].identifier}
+								addOrRemove={(e) => removeBookFromLibrary(selectedBook.id, e)}
+								contentBtn={"Retirer"}
 							/>
 						</section>
 					</>
