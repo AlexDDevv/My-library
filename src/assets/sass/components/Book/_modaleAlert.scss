@@ -1,0 +1,38 @@
+.overlay {
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 500;
+    @include center;
+
+    .modale-container {
+        position: relative;
+        background: $container-bg;
+        border-radius: 3px;
+        width: 250px;
+        @include center;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+
+        .closeModale-btn {
+            background: $body-color;
+            border-radius: 3px;
+            border: none;
+            color: white;
+            font-family: $body-font;
+            font-weight: 700;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .modale-content {
+            color: $body-color;
+            font-family: $body-font;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+    }
+}
