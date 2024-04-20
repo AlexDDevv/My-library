@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function SocialLink({ link, title, icon }) {
     return (
-        <a href={link} target='blank' title={title} className="social-link">
-            <li className="footer-li">
+        <li className="footer-li">
+            <a href={link} target='blank' title={title} className="social-link">
                 <i className={icon}></i>
-            </li>
-        </a>
+            </a>
+        </li>
     )
 }
